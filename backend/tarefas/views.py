@@ -3,9 +3,9 @@ from datetime import date
 from django.http import JsonResponse
 from .models import Tarefa
 
-def listar_tarefas(request):
-    tarefas = Tarefa.objects.all().values()
-    return JsonResponse(list(tarefas), safe=False)
+def listar_tarefas_usuarios(request):
+    tarefas_usuarios = Tarefa.objects.all().values('id', 'titulo', 'status', 'prioridade', 'data_entrega', 'usuario_responsavel__nome')
+    return JsonResponse(list(tarefas_usuarios), safe=False)
 
 def listar_tarefas_abertas(request):
     tarefas_abertas = Tarefa.objects.filter(status='ABERTA').values()
@@ -34,4 +34,3 @@ def listar_tarefas_atrasadas(request):
 def listar_tarefas_buscar(request, termo):
     tarefas = Tarefa.objects.filter(titulo__icontains=termo).values()
     return JsonResponse(list(tarefas), safe=False)
-

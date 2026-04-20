@@ -16,4 +16,3 @@ Funcionalidades:
     -apps.py -> Configurações do app 
 
 
-    

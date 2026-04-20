@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import (
-    listar_tarefas,
+    listar_tarefas_usuarios,
     listar_tarefas_abertas,
     listar_tarefas_prioridade,
     listar_tarefas_id,
@@ -10,7 +10,7 @@ from .views import (
 )
 
 urlpatterns = [
-    path('tarefas/', listar_tarefas),
+    path('tarefas/', listar_tarefas_usuarios),
     path('tarefas/abertas/', listar_tarefas_abertas),
     path('tarefas/prioridade/<str:prioridade>/', listar_tarefas_prioridade),
     path('tarefas/abertas/prioridade/urgente/', listar_tarefas_abertas_prioridade_urgente),

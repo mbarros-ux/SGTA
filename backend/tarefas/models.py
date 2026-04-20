@@ -25,6 +25,7 @@ class Tarefa(models.Model):
     data_entrega = models.DateField()
     prioridade = models.CharField(max_length=20, choices=PRIORIDADE_CHOICES, default='NAO_URGENTE')
     buscar = models.CharField(max_length=20, choices=BUSCAR_CHOICES, default='TITULO')
+    usuario_responsavel = models.ForeignKey('usuarios.Usuarios', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.titulo
